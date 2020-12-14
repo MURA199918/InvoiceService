@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="InvoiceServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-14T05:22:06" hostname="DESKTOP-J9DM2GE" time="0.008">
+<testsuite name="InvoiceServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-14T05:32:11" hostname="DESKTOP-J9DM2GE" time="0.001">
   <properties/>
-  <testcase name="givenDistanceandTimeshouldReturnTotalFare" classname="InvoiceServiceTest" time="0.008"/>
+  <testcase name="givenDistanceandTimeshouldReturnTotalFare" classname="InvoiceServiceTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
