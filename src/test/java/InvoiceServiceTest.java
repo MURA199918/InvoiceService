@@ -48,4 +48,13 @@ public class InvoiceServiceTest {
         List listofgivenid = invoiceGenerator.calculateFareforUserId(userid);
         Assert.assertEquals(listofgivenid,summary);
     }
+
+    @Test
+    public void givenDistanceTimeandTypeofRide_ShouldReturnMinFare() {
+        double distance = 0.1;
+        int time = 1;
+        String type = "Premium";
+        double fare = invoiceGenerator.calculateFare(type, distance, time);
+        Assert.assertEquals(20,fare,0.0);
+    }
 }
