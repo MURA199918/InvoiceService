@@ -22,4 +22,12 @@ public class InvoiceSummary {
                 Double.compare(that.averageFare, averageFare) == 0;
     }
 
+    @Override
+    public String toString() {
+        return "InvoiceSummary{" +
+                "numofRides=" + numofRides +
+                ", totalFare=" + totalFare +
+                ", averageFare=" + averageFare +
+                '}';
+    }
 }

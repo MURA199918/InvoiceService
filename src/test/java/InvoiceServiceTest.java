@@ -2,6 +2,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 public class InvoiceServiceTest {
     InvoiceGenerator invoiceGenerator = null;
 
@@ -34,5 +36,16 @@ public class InvoiceServiceTest {
         InvoiceSummary summary = invoiceGenerator.calculateFare(rides);
         InvoiceSummary expectedinvoiceSummary = new InvoiceSummary(2,30.0);
         Assert.assertEquals(expectedinvoiceSummary,summary);
+    }
+
+    @Test
+    public void givenUserId_ShouldReturnListofRides_InvoiceSummary() {
+        Ride[] rides = {new Ride(2.0, 5),
+                new Ride(0.1,1)
+        };
+        int userid = 1;
+        List summary = invoiceGenerator.calculateFare(1,rides);
+        List listofgivenid = invoiceGenerator.calculateFareforUserId(userid);
+        Assert.assertEquals(listofgivenid,summary);
     }
 }
