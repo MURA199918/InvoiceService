@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class InvoiceGenerator {
-
     private static final double MIN_COST_PER_KM_NORMAL = 10.0;
     private static final double MIN_COST_PER_KM_PREMIUM = 15.0;
     private static final int MIN_COST_PER_TIME_NORMAL = 1;
@@ -50,12 +49,15 @@ public class InvoiceGenerator {
         }
         UserIdHashMap.put(id,new InvoiceSummary(rides.length, totalFare));
         InvoiceSummary mylist =  new InvoiceSummary(rides.length, totalFare);
-       return Collections.singletonList(mylist);
+        return Collections.singletonList(mylist);
     }
 
     public List calculateFareforUserId(int id){
         List<InvoiceSummary> list = UserIdHashMap.entrySet().stream().filter(e->e.getKey()==id)
-                                       .map(Map.Entry::getValue).collect(Collectors.toList());
+                .map(Map.Entry::getValue).collect(Collectors.toList());
         return list;
     }
+
+
+
 }
