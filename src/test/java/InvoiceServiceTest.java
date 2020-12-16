@@ -5,11 +5,11 @@ import org.junit.Test;
 import java.util.List;
 
 public class InvoiceServiceTest {
-    InvoiceGenerator invoiceGenerator = null;
+    InvoiceService invoiceGenerator = null;
 
     @Before
     public void setUp() throws Exception {
-        invoiceGenerator = new InvoiceGenerator();
+        invoiceGenerator = new InvoiceService();
     }
 
     @Test
@@ -39,13 +39,14 @@ public class InvoiceServiceTest {
     }
 
     @Test
-    public void givenUserId_ShouldReturnListofRides_InvoiceSummary() {
+    public void givenUserIdAndRides_ShouldReturnInvoiceSummary() {
+        String userId = "ab.com";
         Ride[] rides = {new Ride(2.0, 5),
                 new Ride(0.1,1)
         };
-        int userid = 1;
-        List summary = invoiceGenerator.calculateFare(1,rides);
-        List listofgivenid = invoiceGenerator.calculateFareforUserId(userid);
-        Assert.assertEquals(listofgivenid,summary);
+        invoiceGenerator.addRides(userId,rides);
+        InvoiceSummary summary = invoiceGenerator.getInvoiceSummary(userId);
+        InvoiceSummary expectedinvoiceSummary = new InvoiceSummary(2,30.0);
+        Assert.assertEquals(expectedinvoiceSummary,summary);
     }
 }
